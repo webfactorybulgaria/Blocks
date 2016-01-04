@@ -2,7 +2,8 @@
 
 namespace TypiCMS\Modules\Blocks\Http\Controllers;
 
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
+use TypiCMS\Modules\Blocks\Models\Block;
 use TypiCMS\Modules\Blocks\Repositories\BlockInterface as Repository;
 use TypiCMS\Modules\Core\Http\Controllers\BaseApiController;
 
@@ -20,7 +21,7 @@ class ApiController extends BaseApiController
      */
     public function store()
     {
-        $model = $this->repository->create(Input::all());
+        $model = $this->repository->create(Request::all());
         $error = $model ? false : true;
 
         return response()->json([
@@ -36,12 +37,28 @@ class ApiController extends BaseApiController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update($model)
+    public function update()
     {
-        $error = $this->repository->update(Input::all()) ? false : true;
+        $updated = $this->repository->update(Request::all());
 
         return response()->json([
-            'error' => $error,
-        ], 200);
+            'error' => !$updated,
+        ]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param \TypiCMS\Modules\Blocks\Models\Block $block
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy(Block $block)
+    {
+        $deleted = $this->repository->delete($block);
+
+        return response()->json([
+            'error' => !$deleted,
+        ]);
     }
 }
