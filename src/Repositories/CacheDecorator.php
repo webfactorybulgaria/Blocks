@@ -47,7 +47,7 @@ class CacheDecorator extends CacheAbstractDecorator implements BlockInterface
      *
      * @return string html
      */
-    public function render($name = null, array $with = ['translations'])
+    public function render($name = null, array $with = [])
     {
         $cacheKey = md5(config('app.locale').'render'.$name.serialize($with));
 

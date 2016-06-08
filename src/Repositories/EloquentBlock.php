@@ -22,19 +22,13 @@ class EloquentBlock extends RepositoriesAbstract implements BlockInterface
      *
      * @return Collection
      */
-    public function all(array $with = ['translations'], $all = false)
+    public function all(array $with = [], $all = false)
     {
         $query = $this->make($with);
 
         if (!$all) {
             // take only translated items that are online
-            $query->whereHas(
-                'translations',
-                function (Builder $query) {
-                    $query->where('status', 1);
-                    $query->where('locale', config('app.locale'));
-                }
-            );
+            $query->online();
         }
 
         // Query ORDER BY
@@ -54,17 +48,11 @@ class EloquentBlock extends RepositoriesAbstract implements BlockInterface
      *
      * @return string html
      */
-    public function render($name = null, array $with = ['translations'])
+    public function render($name = null, array $with = [])
     {
         $block = $this->make($with)
             ->where('name', $name)
-            ->whereHas(
-                'translations',
-                function (Builder $query) {
-                    $query->where('status', 1);
-                    $query->where('locale', config('app.locale'));
-                }
-            )
+            ->online()
             ->first();
 
         if (!$block) {

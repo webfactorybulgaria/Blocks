@@ -2,7 +2,7 @@
 
 namespace TypiCMS\Modules\Blocks\Models;
 
-use Dimsav\Translatable\Translatable;
+use TypiCMS\Modules\Core\Traits\Translatable;
 use Laracasts\Presenter\PresentableTrait;
 use TypiCMS\Modules\Core\Models\Base;
 use TypiCMS\Modules\History\Traits\Historable;
@@ -32,7 +32,7 @@ class Block extends Base
         'body',
     ];
 
-    protected $appends = ['status', 'body_cleaned'];
+    protected $appends = ['body_cleaned'];
 
     /**
      * Get Body attribute from translation table

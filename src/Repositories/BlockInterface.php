@@ -15,7 +15,7 @@ interface BlockInterface extends RepositoryInterface
      *
      * @return Collection
      */
-    public function all(array $with = ['translations'], $all = false);
+    public function all(array $with = [], $all = false);
 
     /**
      * Get the content of a block.
@@ -25,5 +25,5 @@ interface BlockInterface extends RepositoryInterface
      *
      * @return string html
      */
-    public function render($name = null, array $with = ['translations']);
+    public function render($name = null, array $with = []);
 }

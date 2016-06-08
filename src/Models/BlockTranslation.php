@@ -11,6 +11,6 @@ class BlockTranslation extends BaseTranslation
      */
     public function owner()
     {
-        return $this->belongsTo('TypiCMS\Modules\Blocks\Models\Block', 'block_id');
+        return $this->belongsTo('TypiCMS\Modules\Blocks\Models\Block', 'block_id')->withoutGlobalScopes();
     }
 }
