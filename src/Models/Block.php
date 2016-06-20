@@ -35,26 +35,6 @@ class Block extends Base
     protected $appends = ['body_cleaned'];
 
     /**
-     * Append status attribute from translation table.
-     *
-     * @return string
-     */
-    public function getStatusAttribute()
-    {
-        return $this->status;
-    }
-
-    /**
-     * Append title attribute from translation table.
-     *
-     * @return string title
-     */
-    public function getTitleAttribute()
-    {
-        return $this->title;
-    }
-
-    /**
      * Append thumb attribute.
      *
      * @return string
