@@ -5,10 +5,10 @@ namespace TypiCMS\Modules\Blocks\Providers;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
-use TypiCMS\Modules\Blocks\Models\Block;
-use TypiCMS\Modules\Blocks\Repositories\CacheDecorator;
-use TypiCMS\Modules\Blocks\Repositories\EloquentBlock;
-use TypiCMS\Modules\Core\Services\Cache\LaravelCache;
+use TypiCMS\Modules\Blocks\Custom\Models\Block;
+use TypiCMS\Modules\Blocks\Custom\Repositories\CacheDecorator;
+use TypiCMS\Modules\Blocks\Custom\Repositories\EloquentBlock;
+use TypiCMS\Modules\Core\Custom\Services\Cache\LaravelCache;
 
 class ModuleProvider extends ServiceProvider
 {
@@ -33,7 +33,7 @@ class ModuleProvider extends ServiceProvider
 
         AliasLoader::getInstance()->alias(
             'Blocks',
-            'TypiCMS\Modules\Blocks\Facades\Facade'
+            'TypiCMS\Modules\Blocks\Custom\Facades\Facade'
         );
     }
 
@@ -44,14 +44,14 @@ class ModuleProvider extends ServiceProvider
         /*
          * Register route service provider
          */
-        $app->register('TypiCMS\Modules\Blocks\Providers\RouteServiceProvider');
+        $app->register('TypiCMS\Modules\Blocks\Custom\Providers\RouteServiceProvider');
 
         /*
          * Sidebar view composer
          */
-        $app->view->composer('core::admin._sidebar', 'TypiCMS\Modules\Blocks\Composers\SidebarViewComposer');
+        $app->view->composer('core::admin._sidebar', 'TypiCMS\Modules\Blocks\Custom\Composers\SidebarViewComposer');
 
-        $app->bind('TypiCMS\Modules\Blocks\Repositories\BlockInterface', function (Application $app) {
+        $app->bind('TypiCMS\Modules\Blocks\Custom\Repositories\BlockInterface', function (Application $app) {
             $repository = new EloquentBlock(new Block());
             if (!config('typicms.cache')) {
                 return $repository;
