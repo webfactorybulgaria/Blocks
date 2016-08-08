@@ -1,6 +1,6 @@
 <?php
 
-namespace TypiCMS\Modules\Blocks\Custom\Presenters;
+namespace TypiCMS\Modules\Blocks\Shells\Presenters;
 
 use TypiCMS\Modules\Blocks\Presenters\BlockPresenter as Base;
 

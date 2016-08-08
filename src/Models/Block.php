@@ -2,10 +2,10 @@
 
 namespace TypiCMS\Modules\Blocks\Models;
 
-use TypiCMS\Modules\Core\Custom\Traits\Translatable;
+use TypiCMS\Modules\Core\Shells\Traits\Translatable;
 use Laracasts\Presenter\PresentableTrait;
-use TypiCMS\Modules\Core\Custom\Models\Base;
-use TypiCMS\Modules\History\Custom\Traits\Historable;
+use TypiCMS\Modules\Core\Shells\Models\Base;
+use TypiCMS\Modules\History\Shells\Traits\Historable;
 
 class Block extends Base
 {
@@ -13,7 +13,7 @@ class Block extends Base
     use PresentableTrait;
     use Translatable;
 
-    protected $presenter = 'TypiCMS\Modules\Blocks\Custom\Presenters\BlockPresenter';
+    protected $presenter = 'TypiCMS\Modules\Blocks\Shells\Presenters\BlockPresenter';
 
     protected $fillable = [
         'name',

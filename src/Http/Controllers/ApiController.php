@@ -3,9 +3,9 @@
 namespace TypiCMS\Modules\Blocks\Http\Controllers;
 
 use Illuminate\Support\Facades\Request;
-use TypiCMS\Modules\Blocks\Custom\Models\Block;
-use TypiCMS\Modules\Blocks\Custom\Repositories\BlockInterface as Repository;
-use TypiCMS\Modules\Core\Custom\Http\Controllers\BaseApiController;
+use TypiCMS\Modules\Blocks\Shells\Models\Block;
+use TypiCMS\Modules\Blocks\Shells\Repositories\BlockInterface as Repository;
+use TypiCMS\Modules\Core\Shells\Http\Controllers\BaseApiController;
 
 class ApiController extends BaseApiController
 {
@@ -49,7 +49,7 @@ class ApiController extends BaseApiController
     /**
      * Remove the specified resource from storage.
      *
-     * @param \TypiCMS\Modules\Blocks\Custom\Models\Block $block
+     * @param \TypiCMS\Modules\Blocks\Shells\Models\Block $block
      *
      * @return \Illuminate\Http\JsonResponse
      */

@@ -2,7 +2,7 @@
 
 namespace TypiCMS\Modules\Blocks\Presenters;
 
-use TypiCMS\Modules\Core\Custom\Presenters\Presenter;
+use TypiCMS\Modules\Core\Shells\Presenters\Presenter;
 
 class BlockPresenter extends Presenter
 {

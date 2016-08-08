@@ -1,6 +1,6 @@
 <?php
 
-namespace TypiCMS\Modules\Blocks\Custom\Http\Controllers;
+namespace TypiCMS\Modules\Blocks\Shells\Http\Controllers;
 
 use TypiCMS\Modules\Blocks\Http\Controllers\ApiController as Base;
 
