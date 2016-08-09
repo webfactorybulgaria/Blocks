@@ -2,7 +2,7 @@
 
 namespace TypiCMS\Modules\Blocks\Models;
 
-use TypiCMS\Modules\Core\Models\BaseTranslation;
+use TypiCMS\Modules\Core\Shells\Models\BaseTranslation;
 
 class BlockTranslation extends BaseTranslation
 {
@@ -11,6 +11,6 @@ class BlockTranslation extends BaseTranslation
      */
     public function owner()
     {
-        return $this->belongsTo('TypiCMS\Modules\Blocks\Models\Block', 'block_id')->withoutGlobalScopes();
+        return $this->belongsTo('TypiCMS\Modules\Blocks\Shells\Models\Block', 'block_id')->withoutGlobalScopes();
     }
 }

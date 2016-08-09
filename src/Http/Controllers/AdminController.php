@@ -2,10 +2,10 @@
 
 namespace TypiCMS\Modules\Blocks\Http\Controllers;
 
-use TypiCMS\Modules\Blocks\Http\Requests\FormRequest;
-use TypiCMS\Modules\Blocks\Models\Block;
-use TypiCMS\Modules\Blocks\Repositories\BlockInterface;
-use TypiCMS\Modules\Core\Http\Controllers\BaseAdminController;
+use TypiCMS\Modules\Blocks\Shells\Http\Requests\FormRequest;
+use TypiCMS\Modules\Blocks\Shells\Models\Block;
+use TypiCMS\Modules\Blocks\Shells\Repositories\BlockInterface;
+use TypiCMS\Modules\Core\Shells\Http\Controllers\BaseAdminController;
 
 class AdminController extends BaseAdminController
 {
@@ -40,7 +40,7 @@ class AdminController extends BaseAdminController
     /**
      * Edit form for the specified resource.
      *
-     * @param \TypiCMS\Modules\Blocks\Models\Block $block
+     * @param \TypiCMS\Modules\Blocks\Shells\Models\Block $block
      *
      * @return \Illuminate\View\View
      */
@@ -53,7 +53,7 @@ class AdminController extends BaseAdminController
     /**
      * Store a newly created resource in storage.
      *
-     * @param \TypiCMS\Modules\Blocks\Http\Requests\FormRequest $request
+     * @param \TypiCMS\Modules\Blocks\Shells\Http\Requests\FormRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -67,8 +67,8 @@ class AdminController extends BaseAdminController
     /**
      * Update the specified resource in storage.
      *
-     * @param \TypiCMS\Modules\Blocks\Models\Block              $block
-     * @param \TypiCMS\Modules\Blocks\Http\Requests\FormRequest $request
+     * @param \TypiCMS\Modules\Blocks\Shells\Models\Block              $block
+     * @param \TypiCMS\Modules\Blocks\Shells\Http\Requests\FormRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse
      */
