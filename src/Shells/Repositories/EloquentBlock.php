@@ -2,9 +2,9 @@
 
 namespace TypiCMS\Modules\Blocks\Shells\Repositories;
 
-use TypiCMS\Modules\Blocks\Repositories\EloquentBlock as Base;
+use TypiCMS\Modules\Blocks\Repositories\EloquentBlock as BaseClass;
 
-class EloquentBlock extends Base implements BlockInterface
+class EloquentBlock extends BaseClass implements BlockInterface
 {
 
 }

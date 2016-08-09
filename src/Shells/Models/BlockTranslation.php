@@ -2,9 +2,9 @@
 
 namespace TypiCMS\Modules\Blocks\Shells\Models;
 
-use TypiCMS\Modules\Blocks\Models\BlockTranslation as Base;
+use TypiCMS\Modules\Blocks\Models\BlockTranslation as BaseClass;
 
-class BlockTranslation extends Base
+class BlockTranslation extends BaseClass
 {
 
 }
