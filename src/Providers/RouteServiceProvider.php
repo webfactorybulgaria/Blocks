@@ -2,7 +2,7 @@
 
 namespace TypiCMS\Modules\Blocks\Providers;
 
-use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Route;
 use TypiCMS\Modules\Core\Shells\Providers\BaseRouteServiceProvider as ServiceProvider;
 
 class RouteServiceProvider extends ServiceProvider
@@ -19,28 +19,26 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define the routes for the application.
      *
-     * @param \Illuminate\Routing\Router $router
-     *
      * @return void
      */
-    public function map(Router $router)
+    public function map()
     {
-        $router->group(['namespace' => $this->namespace], function (Router $router) {
+        Route::group(['namespace' => $this->namespace], function () {
             /*
              * Admin routes
              */
-            $router->get('admin/blocks', 'AdminController@index')->name('admin::index-blocks');
-            $router->get('admin/blocks/create', 'AdminController@create')->name('admin::create-block');
-            $router->get('admin/blocks/{block}/edit', 'AdminController@edit')->name('admin::edit-block');
-            $router->post('admin/blocks', 'AdminController@store')->name('admin::store-block');
-            $router->put('admin/blocks/{block}', 'AdminController@update')->name('admin::update-block');
+            Route::get('admin/blocks', 'AdminController@index')->name('admin::index-blocks');
+            Route::get('admin/blocks/create', 'AdminController@create')->name('admin::create-block');
+            Route::get('admin/blocks/{block}/edit', 'AdminController@edit')->name('admin::edit-block');
+            Route::post('admin/blocks', 'AdminController@store')->name('admin::store-block');
+            Route::put('admin/blocks/{block}', 'AdminController@update')->name('admin::update-block');
 
             /*
              * API routes
              */
-            $router->get('api/blocks', 'ApiController@index')->name('api::index-blocks');
-            $router->put('api/blocks/{block}', 'ApiController@update')->name('api::update-block');
-            $router->delete('api/blocks/{block}', 'ApiController@destroy')->name('api::destroy-block');
+            Route::get('api/blocks', 'ApiController@index')->name('api::index-blocks');
+            Route::put('api/blocks/{block}', 'ApiController@update')->name('api::update-block');
+            Route::delete('api/blocks/{block}', 'ApiController@destroy')->name('api::destroy-block');
         });
     }
 }
